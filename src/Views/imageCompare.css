@@ -1,0 +1,8 @@
+.imgCompare {
+	height: 100vh !important;
+	overflow: hidden;
+}
+
+.imgCompare > div {
+	height: 100%;
+}

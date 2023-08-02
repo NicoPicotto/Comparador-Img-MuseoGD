@@ -1,0 +1,8 @@
+.imgListContainer {
+	width: fit-content;
+}
+
+.imgListItem {
+	display: flex;
+	width: 400px;
+}
