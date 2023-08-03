@@ -2,6 +2,7 @@ import React from 'react';
 import { BrowserRouter as Router, Route, Link, Routes } from 'react-router-dom';
 import './App.css';
 import CompareView from './Views/CompareView';
+import Masonry from 'react-masonry-css';
 import img1 from './assets/15-8.jpg';
 import img1c from './assets/15-8c.jpg';
 import img2 from './assets/1913.jpg';
@@ -26,13 +27,24 @@ function App() {
 		// add more images here
 	];
 
+	// Define your breakpoint columns obj
+	const breakpointColumnsObj = {
+		default: 3, // 3 columns layout for larger devices
+		1100: 2, // 2 columns for medium devices
+		700: 1, // 1 column for small devices
+	};
+
 	return (
 		<Router>
 			<Routes>
 				<Route
 					path='/'
 					element={
-						<div className='imgListContainer'>
+						<Masonry
+							breakpointCols={breakpointColumnsObj}
+							className='my-masonry-grid'
+							columnClassName='my-masonry-grid_column'
+						>
 							{images.map((image) => (
 								<Link
 									key={image.id}
@@ -46,7 +58,7 @@ function App() {
 									/>
 								</Link>
 							))}
-						</div>
+						</Masonry>
 					}
 				/>
 
