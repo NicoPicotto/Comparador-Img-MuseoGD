@@ -1,8 +1,13 @@
 .imgListContainer {
-	width: fit-content;
+	width: 100%;
+	display: grid;
+	grid-template-columns: auto auto auto;
 }
 
-.imgListItem {
-	display: flex;
-	width: 400px;
+.imgListLink {
+	width: 100%;
+}
+
+.imgListItem{
+	width: 100%;
 }
