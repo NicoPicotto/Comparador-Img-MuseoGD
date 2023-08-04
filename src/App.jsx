@@ -15,6 +15,12 @@ import img5 from './assets/ESC.jpg';
 import img5c from './assets/ESCc.jpg';
 import img6 from './assets/Fog.jpg';
 import img6c from './assets/Fogc.jpg';
+import img7 from './assets/Igle.jpg';
+import img7c from './assets/Iglec.jpg';
+import img8 from './assets/Igle2.jpg';
+import img8c from './assets/Igle2c.jpg';
+import img9 from './assets/Mol.jpg';
+import img9c from './assets/Molc.jpg';
 
 function App() {
 	const images = [
@@ -24,14 +30,15 @@ function App() {
 		{ id: 4, bw: img4, color: img4c },
 		{ id: 5, bw: img5, color: img5c },
 		{ id: 6, bw: img6, color: img6c },
-		// add more images here
+		{ id: 7, bw: img7, color: img7c },
+		{ id: 8, bw: img8, color: img8c },
+		{ id: 9, bw: img9, color: img9c },
 	];
 
-	// Define your breakpoint columns obj
 	const breakpointColumnsObj = {
-		default: 3, // 3 columns layout for larger devices
-		1100: 2, // 2 columns for medium devices
-		700: 1, // 1 column for small devices
+		default: 4,
+		1100: 3,
+		700: 2,
 	};
 
 	return (
