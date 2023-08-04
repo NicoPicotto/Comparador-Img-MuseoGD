@@ -19,7 +19,7 @@ import img7 from './assets/Igle.jpg';
 import img7c from './assets/Iglec.jpg';
 import img8 from './assets/Igle2.jpg';
 import img8c from './assets/Igle2c.jpg';
-import img9 from './assets/Mol.JPG';
+import img9 from './assets/Mol.jpg';
 import img9c from './assets/Molc.jpg';
 import img10 from './assets/Muni.jpg';
 import img10c from './assets/Munic.jpg';
