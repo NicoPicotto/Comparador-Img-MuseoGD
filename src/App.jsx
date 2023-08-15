@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { BrowserRouter as Router, Route, Link, Routes } from 'react-router-dom';
 import './App.css';
 import CompareView from './Views/CompareView';
@@ -35,36 +35,36 @@ import img15 from './assets/Pro3.jpg';
 import img15c from './assets/Pro3c.jpg';
 import img16 from './assets/Rur.jpg';
 import img16c from './assets/Rurc.jpg';
-import img17 from "./assets/miradas/agd.jpg"
-import img17c from "./assets/miradas/agdc.jpg"
-import img18 from "./assets/miradas/bv.jpg"
-import img18c from "./assets/miradas/bvc.jpg"
-import img19 from "./assets/miradas/comedor.jpg"
-import img19c from "./assets/miradas/comedorc.jpg"
-import img20 from "./assets/miradas/concejo.jpg"
-import img20c from "./assets/miradas/concejoc.jpg"
-import img21 from "./assets/miradas/entrada.jpg"
-import img21c from "./assets/miradas/entradac.jpg"
-import img22 from "./assets/miradas/froute.jpg"
-import img22c from "./assets/miradas/froutec.jpg"
-import img23 from "./assets/miradas/muni.jpg"
-import img23c from "./assets/miradas/munic.jpg"
-import img24 from "./assets/miradas/mutual.jpg"
-import img24c from "./assets/miradas/mutualc.jpg"
-import img25 from "./assets/miradas/naranjos.jpg"
-import img25c from "./assets/miradas/naranjosc.jpg"
-import img26 from "./assets/miradas/pintu.jpg"
-import img26c from "./assets/miradas/pintuc.jpg"
-import img27 from "./assets/miradas/pla1.jpg"
-import img27c from "./assets/miradas/pla1c.jpg"
-import img28 from "./assets/miradas/pla2.jpg"
-import img28c from "./assets/miradas/pla2c.jpg"
-import img29 from "./assets/miradas/tanque.jpg"
-import img29c from "./assets/miradas/tanquec.jpg"
-import img30 from "./assets/miradas/templo.jpg"
-import img30c from "./assets/miradas/temploc.jpg"
-import img31 from "./assets/miradas/via.jpg"
-import img31c from "./assets/miradas/viac.jpg"
+import img17 from './assets/miradas/agd.jpg';
+import img17c from './assets/miradas/agdc.jpg';
+import img18 from './assets/miradas/bv.jpg';
+import img18c from './assets/miradas/bvc.jpg';
+import img19 from './assets/miradas/comedor.jpg';
+import img19c from './assets/miradas/comedorc.jpg';
+import img20 from './assets/miradas/concejo.jpg';
+import img20c from './assets/miradas/concejoc.jpg';
+import img21 from './assets/miradas/entrada.jpg';
+import img21c from './assets/miradas/entradac.jpg';
+import img22 from './assets/miradas/froute.jpg';
+import img22c from './assets/miradas/froutec.jpg';
+import img23 from './assets/miradas/muni.jpg';
+import img23c from './assets/miradas/munic.jpg';
+import img24 from './assets/miradas/mutual.jpg';
+import img24c from './assets/miradas/mutualc.jpg';
+import img25 from './assets/miradas/naranjos.jpg';
+import img25c from './assets/miradas/naranjosc.jpg';
+import img26 from './assets/miradas/pintu.jpg';
+import img26c from './assets/miradas/pintuc.jpg';
+import img27 from './assets/miradas/pla1.jpg';
+import img27c from './assets/miradas/pla1c.jpg';
+import img28 from './assets/miradas/pla2.jpg';
+import img28c from './assets/miradas/pla2c.jpg';
+import img29 from './assets/miradas/tanque.jpg';
+import img29c from './assets/miradas/tanquec.jpg';
+import img30 from './assets/miradas/templo.jpg';
+import img30c from './assets/miradas/temploc.jpg';
+import img31 from './assets/miradas/via.jpg';
+import img31c from './assets/miradas/viac.jpg';
 
 function App() {
 	const images = [
@@ -101,15 +101,30 @@ function App() {
 		{ id: 28, bw: img28, color: img28c },
 		{ id: 29, bw: img29, color: img29c },
 		{ id: 30, bw: img30, color: img30c },
-		{ id: 31, bw: img31, color: img31c }
+		{ id: 31, bw: img31, color: img31c },
 	];
-
 
 	const breakpointColumnsObj = {
 		default: 4,
 		1100: 3,
 		700: 2,
 	};
+
+	useEffect(() => {
+		let elem = document.documentElement;
+		if (elem.requestFullscreen) {
+			elem.requestFullscreen();
+		} else if (elem.mozRequestFullScreen) {
+			/* Firefox */
+			elem.mozRequestFullScreen();
+		} else if (elem.webkitRequestFullscreen) {
+			/* Chrome, Safari & Opera */
+			elem.webkitRequestFullscreen();
+		} else if (elem.msRequestFullscreen) {
+			/* IE/Edge */
+			elem.msRequestFullscreen();
+		}
+	}, []);
 
 	return (
 		<Router>
@@ -139,7 +154,7 @@ function App() {
 					}
 				/>
 
-				<Route path='/compare/:id' element={<CompareView images={images}/>} />
+				<Route path='/compare/:id' element={<CompareView images={images} />} />
 				<Route
 					path='/miradas'
 					element={
@@ -164,7 +179,10 @@ function App() {
 						</Masonry>
 					}
 				/>
-				<Route path='/compareMiradas/:id' element={<CompareView images={miradasFotos} />} />
+				<Route
+					path='/compareMiradas/:id'
+					element={<CompareView images={miradasFotos} />}
+				/>
 			</Routes>
 		</Router>
 	);
