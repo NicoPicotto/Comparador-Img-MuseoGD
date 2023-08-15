@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { BrowserRouter as Router, Route, Link, Routes } from 'react-router-dom';
 import './App.css';
 import CompareView from './Views/CompareView';
@@ -109,22 +109,6 @@ function App() {
 		1100: 3,
 		700: 2,
 	};
-
-	useEffect(() => {
-		let elem = document.documentElement;
-		if (elem.requestFullscreen) {
-			elem.requestFullscreen();
-		} else if (elem.mozRequestFullScreen) {
-			/* Firefox */
-			elem.mozRequestFullScreen();
-		} else if (elem.webkitRequestFullscreen) {
-			/* Chrome, Safari & Opera */
-			elem.webkitRequestFullscreen();
-		} else if (elem.msRequestFullscreen) {
-			/* IE/Edge */
-			elem.msRequestFullscreen();
-		}
-	}, []);
 
 	return (
 		<Router>
