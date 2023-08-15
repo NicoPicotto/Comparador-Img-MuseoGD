@@ -8,12 +8,20 @@ import back from '../assets/back.png';
 function CompareView({ images }) {
 	const { id } = useParams();
 	const image = images.find((image) => image.id === Number(id));
+	let path = window.location.pathname;
 
 	return (
 		<div className='imgCompare'>
-			<Link to='/' class='imgBack'>
-				<img src={back} className='arrow' />
-			</Link>
+			{path.startsWith('/compareMiradas') ? (
+				<Link to='/miradas' class='imgBack'>
+					<img src={back} className='arrow' />
+				</Link>
+			) : (
+				<Link to='/' class='imgBack'>
+					<img src={back} className='arrow' />
+				</Link>
+			)}
+
 			<ReactCompareImage
 				leftImage={image.bw}
 				rightImage={image.color}

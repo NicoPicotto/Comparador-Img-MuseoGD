@@ -35,6 +35,10 @@ import img15 from './assets/Pro3.jpg';
 import img15c from './assets/Pro3c.jpg';
 import img16 from './assets/Rur.jpg';
 import img16c from './assets/Rurc.jpg';
+import img17 from "./assets/miradas/agd.jpg"
+import img17c from "./assets/miradas/agdc.jpg"
+
+
 
 function App() {
 	const images = [
@@ -55,6 +59,11 @@ function App() {
 		{ id: 15, bw: img15, color: img15c },
 		{ id: 16, bw: img16, color: img16c },
 	];
+
+	const miradasFotos = [
+		{ id: 17, bw: img17, color: img17c },
+	];
+
 
 	const breakpointColumnsObj = {
 		default: 4,
@@ -90,7 +99,32 @@ function App() {
 					}
 				/>
 
-				<Route path='/compare/:id' element={<CompareView images={images} />} />
+				<Route path='/compare/:id' element={<CompareView images={images}/>} />
+				<Route
+					path='/miradas'
+					element={
+						<Masonry
+							breakpointCols={breakpointColumnsObj}
+							className='my-masonry-grid'
+							columnClassName='my-masonry-grid_column'
+						>
+							{miradasFotos.map((image) => (
+								<Link
+									key={image.id}
+									to={`/compareMiradas/${image.id}`}
+									className='imgListLink'
+								>
+									<img
+										className='imgListItem'
+										src={image.bw}
+										alt='Black and White'
+									/>
+								</Link>
+							))}
+						</Masonry>
+					}
+				/>
+				<Route path='/compareMiradas/:id' element={<CompareView images={miradasFotos} />} />
 			</Routes>
 		</Router>
 	);
